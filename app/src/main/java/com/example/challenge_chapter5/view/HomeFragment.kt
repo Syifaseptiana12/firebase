@@ -44,16 +44,12 @@ class HomeFragment : Fragment() {
 
 
         // Show Data on RV
-        showList()
+        setVmtoAdapter()
         //VM
         viewmodelFilm = ViewModelProvider(this).get(ViewModelFilm::class.java)
         viewmodelFilm.allLiveData().observe(viewLifecycleOwner, Observer {
             adapterFilm.setData(it as ArrayList<ResponseDataFilmItem>)
         })
-        //RV
-        adapterFilm = AdapterFilm(ArrayList())
-        binding.rvMovie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.rvMovie.adapter = adapterFilm
 
         binding.btnProfile.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_profileFragment)
@@ -61,28 +57,17 @@ class HomeFragment : Fragment() {
 
 
     }
-
-    private fun showList() {
-        RetrofitClient.instance.getAll()
-            .enqueue(object : Callback<List<ResponseDataFilmItem>> {
-                override fun onResponse(
-                    call: Call<List<ResponseDataFilmItem>>,
-                    response: Response<List<ResponseDataFilmItem>>,
-                ) {
-                    if (response.isSuccessful){
-                        binding.rvMovie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                        binding.rvMovie.adapter = AdapterFilm(response.body()!!)
-                        Toast.makeText(context, "Load Data Success", Toast.LENGTH_LONG).show()
-                    }else{
-                        Toast.makeText(context, "Load Data Failed", Toast.LENGTH_LONG).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<List<ResponseDataFilmItem>>, t: Throwable) {
-                    Toast.makeText(context, "Something Wrong", Toast.LENGTH_LONG).show()
-                }
-
-            })
+    fun setVmtoAdapter(){
+            val viewModel = ViewModelProvider(this).get(ViewModelFilm::class.java)
+        viewModel.showList()
+        viewModel.allLiveData().observe(viewLifecycleOwner, Observer {
+            //RV
+            adapterFilm = AdapterFilm(ArrayList())
+            binding.rvMovie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            binding.rvMovie.adapter = adapterFilm
+        })
     }
+
+
 
 }
