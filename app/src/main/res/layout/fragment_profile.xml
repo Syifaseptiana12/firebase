@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProfileFragment">
+
+    <TextView
+        android:id="@+id/txtProfile"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:text="@string/profile"
+        android:layout_marginTop="50dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/container1"
+        android:layout_below="@id/txtProfile"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:padding="10dp"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/masukkan_username"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:background="@drawable/custom_input"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/etUsername"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Email"
+            app:passwordToggleEnabled="true"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:background="@drawable/custom_input"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/etEmail"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/masukkan_passowrd"
+            app:passwordToggleEnabled="true"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:background="@drawable/custom_input"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:id="@+id/etPasswordConfirm"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/etPassword"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/konfirmasi_passowrd"
+            app:passwordToggleEnabled="true"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:background="@drawable/custom_input"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+<com.google.android.material.button.MaterialButton
+    android:layout_marginStart="40dp"
+    android:layout_marginTop="20dp"
+    android:id="@+id/btnUs"
+    android:layout_below="@id/container1"
+    android:layout_width="wrap_content"
+    app:cornerRadius="16dp"
+    android:text="English"
+    android:textAllCaps="false"
+    android:layout_height="wrap_content">
+
+</com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp"
+        android:id="@+id/btnIdn"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/container1"
+        app:cornerRadius="16dp"
+        android:text="Indonesia"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/container1"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:text="@string/update"
+            android:textAllCaps="false"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_below="@id/btnUpdate"
+            android:layout_width="300dp"
+            android:text="@string/logout"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
